@@ -13,4 +13,6 @@ function calcular(){
     mostrarEnSpan("spnInteresPagar",valorInteres.toFixed(2));
     let valorPagar=calcularTotalPagar(monto,valorInteres);
     mostrarEnSpan("spnTotalPrestamo",valorPagar);
+    let cuotaMensual=calcularCuotaMensual(valorPagar,plazo);
+    mostrarEnSpan("spnCuotaMensual",cuotaMensual.toFixed(2));
 }   
