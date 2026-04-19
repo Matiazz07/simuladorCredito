@@ -11,4 +11,6 @@ function calcular(){
     let plazo=recuperarTxtAInt("txtPlazo");
     let valorInteres=calcularInteresSimple(monto,tasa,plazo);
     mostrarEnSpan("spnInteresPagar",valorInteres.toFixed(2));
+    let valorPagar=calcularTotalPagar(monto,valorInteres);
+    mostrarEnSpan("spnTotalPrestamo",valorPagar);
 }   
