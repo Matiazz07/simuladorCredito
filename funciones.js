@@ -26,3 +26,11 @@ function calcularCuotaMensual(total,plazoAnios){
     let pagoMensual=total/(plazoAnios*12);
     return pagoMensual;
 }
+
+function aprobarCredito(capacidadPago,cuotaMensual){
+    if(capacidadPago>cuotaMensual){
+        return true
+    }if(capacidadPago<cuotaMensual){
+        return false
+    }
+}

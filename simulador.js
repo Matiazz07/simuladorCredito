@@ -15,4 +15,10 @@ function calcular(){
     mostrarEnSpan("spnTotalPrestamo",valorPagar);
     let cuotaMensual=calcularCuotaMensual(valorPagar,plazo);
     mostrarEnSpan("spnCuotaMensual",cuotaMensual.toFixed(2));
+    let credito=aprobarCredito(valorCP,cuotaMensual)
+    if(credito==true){
+        mostrarEnSpan("spnEstadoCredito","CREDITO APROBADO")
+    }else{
+        mostrarEnSpan("spnEstadoCredito","CREDITO RECHAZADO")
+    }
 }   
