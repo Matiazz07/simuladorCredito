@@ -1,0 +1,145 @@
+actua como programador y diseniador graafico con mucha experiencia, estamos hacienda una pagina en la cual se puede calcular la si se obtiene o no un credito en base al numero de ingresos, egresos, al monto, al plazo y a la tasa, necesito que hagas que esta pagina sea responsive, no cambies nada del archive js, ni los nombres o id de los elementos del html, puedes cambiar todo lo demas a tu gusto,a continuaion te paso el codigo para que tengas un mejor contexto.
+HTML:<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Crédito</title>
+    <link rel="stylesheet" href="simulador.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Simulador de Crédito</h1>
+
+        <h2>Datos financieros</h2>
+        <label for="txtIngresos">Ingresos:</label>
+        <input type="text" id="txtIngresos">
+
+        <label for="txtEgresos">Egresos:</label>
+        <input type="text" id="txtEgresos">
+
+        <p>Disponible: <span id="spnDisponible"></span></p>
+        <p>Capacidad de pago mensual: <span id="spnCapacidadPago"></span></p>
+
+        <h2>Solicitud de crédito</h2>
+        <label for="txtMonto">Monto:</label>
+        <input type="text" id="txtMonto">
+
+        <label for="txtPlazo">Plazo en años:</label>
+        <input type="text" id="txtPlazo">
+
+        <label for="txtTasaInteres">Tasa de interés:</label>
+        <input type="text" id="txtTasaInteres">
+
+        <p>Interés a pagar: <span id="spnInteresPagar"></span></p>
+        <p>Total préstamo: <span id="spnTotalPrestamo"></span></p>
+        <p>Cuota mensual: <span id="spnCuotaMensual"></span></p>
+        <p>Estado de crédito: <span id="spnEstadoCredito">ANALIZANDO...</span></p>
+
+        <div class="buttons">
+            <button id="btnCalcularCredito" onclick="calcular();">Calcular Crédito</button>
+            <button id="btnReiniciar">Reiniciar</button>
+        </div>
+    </div>
+    <script src="funciones.js"></script>
+    <script src="simulador.js"></script>
+    <script src="utils.js"></script>
+</body>
+</html>
+
+JS://AQUI EL JAVASCRIPT PARA MANIPULAR EL HTML
+function calcular(){
+    let ingresos=recuperarTxtAFloat("txtIngresos");
+    let egresos=recuperarTxtAFloat("txtEgresos");
+    let valor=calcularDisponible(ingresos,egresos);
+    mostrarEnSpan("spnDisponible",valor.toFixed(2));
+    let valorCP=calcularCapacidadPago(valor);
+    mostrarEnSpan("spnCapacidadPago",valorCP.toFixed(2));
+    let monto=recuperarTxtAInt("txtMonto");
+    let tasa=recuperarTxtAInt("txtTasaInteres");
+    let plazo=recuperarTxtAInt("txtPlazo");
+    let valorInteres=calcularInteresSimple(monto,tasa,plazo);
+    mostrarEnSpan("spnInteresPagar",valorInteres.toFixed(2));
+    let valorPagar=calcularTotalPagar(monto,valorInteres);
+    mostrarEnSpan("spnTotalPrestamo",valorPagar);
+    let cuotaMensual=calcularCuotaMensual(valorPagar,plazo);
+    mostrarEnSpan("spnCuotaMensual",cuotaMensual.toFixed(2));
+    let credito=aprobarCredito(valorCP,cuotaMensual)
+    if(credito==true){
+        mostrarEnSpan("spnEstadoCredito","CREDITO APROBADO")
+    }else{
+        mostrarEnSpan("spnEstadoCredito","CREDITO RECHAZADO")
+    }
+}   
+
+CSS:body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+p {
+    margin-top: 10px;
+}
+
+span {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
