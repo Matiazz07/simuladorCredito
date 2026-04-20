@@ -20,11 +20,13 @@
                     <h2>📊 Datos financieros</h2>
                     <div class="input-group">
                         <label for="txtIngresos">Ingresos Mensuales ($):</label>
-                        <input type="number" id="txtIngresos" placeholder="Ej. 1500">
+                        <input type="text" id="txtIngresos" placeholder="Ej. 1500" onblur="validarInput('txtIngresos', 'msgIngresos', 5)">
+                        <span id="msgIngresos" class="error-msg"></span>
                     </div>
                     <div class="input-group">
                         <label for="txtEgresos">Egresos Mensuales ($):</label>
-                        <input type="number" id="txtEgresos" placeholder="Ej. 800">
+                        <input type="text" id="txtEgresos" placeholder="Ej. 800" onblur="validarInput('txtEgresos', 'msgEgresos', 5)">
+                        <span id="msgEgresos" class="error-msg"></span>
                     </div>
                 </div>
 
@@ -32,15 +34,18 @@
                     <h2>💳 Solicitud de crédito</h2>
                     <div class="input-group">
                         <label for="txtMonto">Monto Solicitado ($):</label>
-                        <input type="number" id="txtMonto" placeholder="Ej. 5000">
+                        <input type="text" id="txtMonto" placeholder="Ej. 5000" onblur="validarInput('txtMonto', 'msgMonto', 5)">
+                        <span id="msgMonto" class="error-msg"></span>
                     </div>
                     <div class="input-group">
                         <label for="txtPlazo">Plazo en años:</label>
-                        <input type="number" id="txtPlazo" placeholder="Ej. 5">
+                        <input type="text" id="txtPlazo" placeholder="Ej. 5" onblur="validarInput('txtPlazo', 'msgPlazo', 2)"> 
+                        <span id="msgPlazo" class="error-msg"></span>
                     </div>
                     <div class="input-group">
                         <label for="txtTasaInteres">Tasa de interés anual (%):</label>
-                        <input type="number" id="txtTasaInteres" placeholder="Ej. 12">
+                        <input type="text" id="txtTasaInteres" placeholder="Ej. 12" onblur="validarInput('txtTasaInteres', 'msgTasaInteres', 3)">
+                        <span id="msgTasaInteres" class="error-msg"></span>
                     </div>
                 </div>
             </div>

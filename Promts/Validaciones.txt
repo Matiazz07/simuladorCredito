@@ -1,0 +1,16 @@
+Quiero validar inputs en JavaScript.
+  Reglas:
+	-Moatrar mensaje debajo de cada input (no usar alert)
+	-El mensaje debe mostrar que es una alerta de que sobrepaso el numero de caracteres maximos
+  Validaciones:
+	-Solo numeros
+	-Maximo 5 digitos
+	-No puede estar vacio
+  Condiciones tecnicas:
+	-No puedes cambiar o reemplazar los ids ya creados
+		txtIngresos
+		txtEgresos
+		txtMonto
+		txtPlazo
+		txtTasaInteres
+	-Usar onblur
