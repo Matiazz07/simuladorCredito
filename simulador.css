@@ -25,6 +25,9 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    background-image:url(fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -240,4 +243,21 @@ button {
 
 .btn-secondary:hover {
     background-color: var(--secondary-hover);
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary: #e2e8f0;
+    --secondary-hover: #cbd5e1;
+    --bg-color: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: rgba(226, 232, 240, 0.5); /* Borde más suave para el cristal */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
