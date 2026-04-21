@@ -23,10 +23,23 @@
                         <input type="text" id="txtIngresos" placeholder="Ej. 1500" onblur="validarInput('txtIngresos', 'msgIngresos', 5)">
                         <span id="msgIngresos" class="error-msg"></span>
                     </div>
-                    <div class="input-group">
-                        <label for="txtEgresos">Egresos Mensuales ($):</label>
-                        <input type="text" id="txtEgresos" placeholder="Ej. 800" onblur="validarInput('txtEgresos', 'msgEgresos', 5)">
-                        <span id="msgEgresos" class="error-msg"></span>
+                    <div class="card">
+                        <h2>🛒 Detalle de Gastos</h2>
+                        <div class="input-group">
+                            <label for="txtArriendo">Arriendo ($):</label>
+                            <input type="text" id="txtArriendo" placeholder="Ej. 400" onblur="validarInput('txtArriendo', 'msgArriendo', 5)">
+                            <span id="msgArriendo" class="error-msg"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="txtAlimentacion">Alimentación ($):</label>
+                            <input type="text" id="txtAlimentacion" placeholder="Ej. 200" onblur="validarInput('txtAlimentacion', 'msgAlimentacion', 5)">
+                            <span id="msgAlimentacion" class="error-msg"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="txtVarios">Varios ($):</label>
+                            <input type="text" id="txtVarios" placeholder="Ej. 100" onblur="validarInput('txtVarios', 'msgVarios', 5)">
+                            <span id="msgVarios" class="error-msg"></span>
+                        </div>
                     </div>
                 </div>
 
@@ -53,7 +66,10 @@
             <div class="results-section">
                 <div class="card results-card">
                     <h2>📈 Análisis</h2>
-
+                    <div class="result-item">
+                        <span>Total Gastos:</span>
+                        <strong>$<span id="spnTotalGastos">0.00</span></strong>
+                    </div>
                     <div class="result-item">
                         <span>Disponible:</span>
                         <strong>$<span id="spnDisponible">0.00</span></strong>
